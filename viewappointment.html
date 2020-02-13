@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+
+    .navbar ,.navbar a{
+
+      margin-bottom: 0;
+
+      border-radius: 0;
+
+      background-color: darkcyan;
+
+      color: floralwhite;
+
+
+
+    
+
+    }
+
+    
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+
+    .row.content {height: 450px}
+
+    
+
+    /* Set gray background color and 100% height */
+
+    .sidenav {
+
+      padding-top: 20px;
+
+      background-color:lightblue;
+
+      height: 150%;
+
+      
+
+
+
+    }
+
+.block {
+
+  display: block;
+
+  width: 100%;
+
+  border: none;
+
+  background-color:darkslateblue;
+
+  color: white;
+
+  padding: 14px 28px;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  text-align: center;
+
+}
+
+
+
+.block:hover {
+
+  background-color: #ddd;
+
+  color: black;
+
+
+
+}  
+
+
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+<nav class="navbar">
+
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+
+      <ul class="nav navbar-brand navbar-right">
+
+        <a href="FirstPage .html">Home</a>&nbsp;&nbsp;
+
+<a href="contact.html">Contact Us</a>
+
+      </ul>
+
+  </div>
+
+</div>
+
+</nav>
+
+
+
+
+
+<div class="container ml-auto">
+
+ 
+
+<div class="row">
+
+
+
+<div class="col-lg-9 col-md-9 col-sm-10">
+
+			<h2 class="text-align-center">View Appointments Page</h2>
+
+			
+
+				<div class="table-responsive mt-5">
+
+					<table id="tbldisplay" class="table ">
+
+						
+
+					</table>
+
+				</div>
+
+			
+
+		</div>
+
+		
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+var i=0;
+
+var res = JSON.parse(sessionStorage.getItem('storeObject'));
+
+var size = res.length;
+
+alert(size);
+
+document.getElementById('tbldisplay').innerHTML = "<thead><tr> <th>S.no</th> <th>Firstname </th><th>Lastname</th> <th>StreetAddress </th> <th>City </th>   <th>phonenumber</th> <th>package</th></tr></thead>";
+
+document.getElementById('tbldisplay').innerHTML += "<tbody>";
+
+for(i=0;i<size;i++){
+
+var j = i+1;
+
+document.getElementById('tbldisplay').innerHTML += "<tr><td>" + j +" </td><td>" +res[i].Firstname + "</td><td>" +res[i].Lastname + "</td><td>" +res[i].StreetAddress + "</td><td>" +res[i].city+ "</td><td>" + res[i].phonenumber+ "</td><td>"+res[i].packa+"</td></tr>";
+
+}
+
+document.getElementById('tbldisplay').innerHTML += "</tbody>";
+
+
+
+</script>
+
+
+
+
+
+</body>
+
+</html>			

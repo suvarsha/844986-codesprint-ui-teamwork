@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+
+    .bg-img{
+
+      background-image: url("data:image/jpeg;base64,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");
+
+      height:820px;
+
+     width:auto;
+
+      background-position: center;
+
+      background-repeat: no-repeat;
+
+      background-size: cover;
+
+    }
+
+    
+
+    .navbar ,.navbar a{
+
+      margin-bottom: 0;
+
+      border-radius: 0;
+
+      background-color: darkcyan;
+
+      color: floralwhite;
+
+width:1600px;
+
+
+
+    
+
+    }
+
+    
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+
+    .row.content {height: 450px}
+
+    
+
+    /* Set gray background color and 100% height */
+
+    .sidenav {
+
+      padding-top: 20px;
+
+      background-color:lightblue;
+
+      height: 170%;
+
+      
+
+
+
+    }
+
+.block {
+
+  display: block;
+
+  width: 100%;
+
+  border: none;
+
+  background-color:darkcyan;
+
+  color: white;
+
+  padding: 14px 28px;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  text-align: center;
+
+}
+
+
+
+.block:hover {
+
+  background-color: #ddd;
+
+  color: black;
+
+
+
+}  
+
+
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+  <div class="bg-img">
+
+   
+
+<nav class="navbar">
+
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+
+      <ul class="nav navbar-brand navbar-right">
+
+        <a href="#">Home</a>&nbsp;&nbsp;
+
+<a href="contact.html">Contact Us</a>
+
+      </ul>
+
+  </div>
+
+</div>
+
+</nav>
+
+
+
+<div class="container-fluid text-center">    
+
+  <div class="row content">
+
+    <div class="col-sm-2 sidenav">
+
+  <ul class="nav navbar-brand">
+
+      <a href="viewappointment.html"><h5>View Appointment</h5></a>
+
+</ul>
+
+  <ul class="nav navbar-brand">
+
+    <a href="form1.html"><h5>Place Appointment</h5></a>
+
+</ul>
+
+</div>
+
+</body>
+
+
+
+ <div class="col-md-10 text-left"> 
+
+<h1 style="color:cornflowerblue;" >Fitness Trainer</h1>
+
+<br>
+
+<br>
+
+
+
+<h2 style="color: darkslateblue; ">BUILD UP YOUR STRENGTH</h2><br>
+
+<h4 style="color: darkslateblue; ">Build Your Body and Fitness with Professional Touch</h4>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+
+
+
+
+<form action="form1.html">
+
+      <button class="block">Apply for trainer</button>
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+
+
+</html>
+

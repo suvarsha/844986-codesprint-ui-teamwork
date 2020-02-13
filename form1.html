@@ -1,0 +1,686 @@
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+
+    function onClick(){
+
+    var store = null;
+
+    var Firstname = document.getElementById('Firstname').value;
+
+    var Lastname = document.getElementById('Lastname').value;
+
+    var Age = document.getElementById('Age').value;
+
+    var Email = document.getElementById('Email').value;
+
+    var phonenumber = document.getElementById('phonenumber').value;
+
+    var StreetAddress = document.getElementById('StreetAddress').value;
+
+    var city = document.getElementById('city').value;
+
+  
+
+    var pincode = document.getElementById('pincode').value;
+
+    var radios = document.getElementsByName("trainer"); 
+
+    var physiterapist=document.getElementsByName("phy");
+
+    var physio;
+
+    var days=document.getElementsByName("optradio");
+
+    var select;
+
+    var packa=document.getElementsByName("answer");
+
+    var pack;
+
+    
+
+    for(var i=0;i<days.length;i++)
+
+    {
+
+      if(days[i].checked){
+
+      alert(days[i].value)
+
+      days[i].checked=true;
+
+      select=days[i].value;
+
+      }
+
+    }
+
+    for(var i=0;i<physiterapist.length;i++)
+
+    {
+
+      if(physiterapist[i].checked){
+
+        alert(physiterapist[i].value)
+
+          physiterapist[i].checked=true;
+
+          physio=physiterapist[i].value;
+
+
+
+      }
+
+      
+
+    }
+
+  
+
+    // list of radio button
+
+     // local storage value
+
+    var radiovalue;
+
+    for(var i=0;i<radios.length;i++){
+
+      if(radios[i].checked){
+
+        alert(radios[i].value)
+
+          radios[i].checked = true;
+
+         radiovalue=radios[i].value; // marking the required radio as checked
+
+      }
+
+    }
+
+    for(var i=0;i<packa.length;i++)
+
+    {
+
+      if(packa[i].checked){
+
+        alert(packa[i].value)
+
+        packa[i].checked=true;
+
+        pack=packa[i].value;
+        alert(pack);
+
+      }
+
+    }
+
+  
+
+    
+
+    
+
+   alert(Firstname+ "" + Lastname+ "" + Age+ "" + Email+ "" +  phonenumber+ "" + StreetAddress+ "" + city+ "" + pincode+ "" +radiovalue+""+physio+""+select+""+pack);
+
+    
+
+    if(sessionStorage.getItem('storeObject')){
+
+    var size = JSON.parse(sessionStorage.getItem('storeObject')).length;
+
+    store = JSON.parse(sessionStorage.getItem('storeObject'));
+
+    store[size] = { Firstname: Firstname,
+
+    Lastname: Lastname,
+
+    Age: Age,
+
+    Email: Email,
+
+    phonenumber: phonenumber,
+
+    StreetAddress: StreetAddress,
+
+    city: city,
+
+    pincode: pincode,
+
+    radios:radiovalue,
+
+    physiterapist:physio,
+
+    days:select,
+
+    packa:pack,
+
+    
+
+     };
+
+     
+
+    sessionStorage.setItem('storeObject', JSON.stringify(store));
+
+    }
+
+    else{
+
+    store = [{ 
+
+        Firstname: Firstname,
+
+    Lastname: Lastname,
+
+    Age: Age,
+
+    Email: Email,
+
+    phonenumber: phonenumber,
+
+    StreetAddress: StreetAddress,
+
+    city: city,
+
+    pincode: pincode,
+
+   radios: radiovalue,
+
+   physiterapist:physio,
+
+   days:select,
+
+   packa:pack,
+
+    
+
+     }];
+
+
+
+     
+
+    sessionStorage.setItem('storeObject', JSON.stringify(store));
+
+    }
+
+    
+
+    var res = sessionStorage.getItem('storeObject');
+
+    alert(res);
+
+    return true;
+
+    }
+
+    function cal()
+
+    {
+
+      document.getElementById('INR').value=500;
+
+      document.getElementById('paise').value=0;
+
+
+
+    }
+
+    function calc()
+
+    {
+
+      document.getElementById('INR').value=1600;
+
+      document.getElementById('paise').value=0;
+
+
+
+    }
+
+    function ca()
+
+    {
+
+      document.getElementById('INR').value=3600;
+
+      document.getElementById('paise').value=0;
+
+
+
+    }
+    function Age()
+    {
+      if(Age>=18&&Age<60)
+      {
+        alert("valid");
+      }
+      else{
+        alert("invalid");
+      }
+    }
+
+    </script>
+
+    
+
+</head>
+
+<style>
+
+  .bg-img{
+
+    background-image: url("https://ak0.picdn.net/shutterstock/videos/1485730/thumb/1.jpg");
+
+    background-size: cover;
+
+    height: 1600px;
+
+    width:auto;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+
+
+}
+
+.navbar,.navbar a{
+
+  background-color: darkcyan;
+
+  color: floralwhite;
+
+}
+
+</style>
+
+    <nav class="navbar">
+
+        <div class="container-fluid">
+
+          <div class="navbar-header">
+
+            <ul class="nav navbar-brand navbar-right">
+
+              <a href="FirstPage.html">Home</a>&nbsp;&nbsp;
+
+      <a href="contact.html">ContactUs</a>&nbsp;&nbsp;
+
+      <a href="viewappointment.html">ViewAppointment</a>
+
+            </ul>
+
+        </div>
+
+      </div>
+
+      </nav>
+
+</nav>
+
+<div class="bg-img">
+
+    <h4>Appointment Form</h4>
+
+<body>
+
+<div class="container">
+
+ <form action="" onsubmit="return onClick()">
+
+  
+
+    <div class="row">
+
+      <tr>
+
+    <div class="form-group col-sm-4">
+
+        <td>
+
+      <label for="Firstname">Firstname</label>
+
+      <input type="text" class="form-control" id="Firstname" placeholder="Enter name" name="Firstname" required pattern="[a-zA-Z]+">
+
+      </td>
+
+    </div>
+
+    <div class="form-group col-sm-4">
+
+        <td>
+
+      <label for="Lastname">Lastname</label>
+
+      <input type="text" class="form-control" id="Lastname" placeholder="Enter name" name="Lastname" required pattern="[a-zA-Z]+">
+
+    </td>
+
+    </div>
+
+  </tr>
+
+</div>
+
+<div class="row">
+
+  <tr>
+
+  <div class="form-group col-sm-4">
+
+    <td>
+
+    <label for="Age">Age</label>
+
+      <input type="number" class="form-control" id="Age" placeholder="Enter age" name="Age" onclick="Age()" required pattern="[0-9]{2}+" min="18" max="60">
+
+    </td>
+
+    </div>
+
+    <td>
+
+      <div class="form-group col-sm-4">
+
+      <label for="Email">Email</label>
+
+      <input type="email" class="form-control" id="Email" placeholder="Enter email" name="Email" required>
+
+    </div>
+
+    </td></tr>
+
+    <tr>
+
+    <td>
+
+  <div class="form-group col-sm-4">
+
+    <label for="phonenumber">phonenumber</label>
+
+    <input type="tel" class="form-control" id="phonenumber" placeholder="Enter number" name="phonenumber" required pattern="^\d{10}$">
+
+  </div>
+
+</td>
+
+</tr>
+
+</div>
+
+  <fieldset class="border border-dark p-2">
+    <legend class="w-auto" style="font-weight:bold;">Address</legend>
+
+    <div class="row">
+
+      <tr>
+
+    <div class="form-group col-sm-4">
+
+        <td>
+
+      <label for="StreetAddress">StreetAddress</label>
+
+      <input type="text" class="form-control" id="StreetAddress" placeholder="Enter address" name="StreetAddress" required>
+
+      </td>
+
+    </div>
+
+    <div class="form-group col-sm-4">
+
+        <td>
+
+      <label for="city">City</label>
+
+      <input type="text" class="form-control" id="city" placeholder="Enter city" name="city" required pattern="[a-zA-Z]+">
+
+    </td>
+
+    </div>
+
+  </tr>
+
+</div>
+
+<div class="row">
+
+<div class="form-group col-sm-4">
+
+  <td>
+
+<label for="pincode">Pincode</label>
+
+<input type="text" class="form-control" id="pincode" placeholder="Enter pincode" name="pincode" required pattern="^\d{6}$">
+
+</td>
+
+</div>
+
+</div>
+
+ </fieldset>
+
+
+
+ <div class="container">
+
+  <h6>trainee preferences</h6>
+
+ <div class="control"><label class="radio "><input type="radio"  id="maletrainer"name="trainer" value="maletrainer">maletrainer</label><br></div>
+
+  <div class="control"><label class="radio"><input type="radio" id="femaletrainer" name="trainer" value="femaletrainer">femaletrainer</label></div>
+
+  <div class="control"><label class="radio"><input type="radio" id="Nopreferences" name="trainer" value="Nopreferences">Nopreferences</label><br></div>
+
+  <div class="control"><label class="radio"><input type="radio" id="Traineename" name="trainer" value="Traineename">Traineename</label></div></div>
+
+<div class="container">
+
+<h6>do you need physiterapist</h6>
+
+<div class="control"><label class="radio"><input type="radio" id="yes" name="phy" value="yes">yes</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+  <div class="control"><label class="radio"><input type="radio" id="no" name="phy" value="no">no</label></div>
+
+</div>
+
+  <div>
+
+  <table class="table table-bordered">
+
+    <thead>
+
+      <tr>
+
+        <th>Day</th>
+
+        <th>7amto 9am</th>
+
+        <th>9am to 11am</th>
+
+        <th>11am to 1pm</th>
+
+        <th>1pm to 3pm</th>
+
+        <th>3pm to 5pm</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr>
+
+        <td>Monday</td>&nbsp;&nbsp;
+
+        <td><div class="radio"><input type="radio" name="optradio" value="monday 7am to 9am"> </div> </td>
+
+        <td><div class="radio"><input type="radio"  name="optradio" value="monday 9am to 11am"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio" value="monday 11am to 1pm"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio" value="monday 1pm to 3pm"></div></td>
+
+        <td><div class="radio"><input type="radio" name="optradio"value="monday 3pm to 5pm"></div></td>
+
+      </tr>
+
+      <tr>
+
+        <td>Tuesday</td>&nbsp;&nbsp;
+
+        <td><div class="radio"><input type="radio"  name="optradio" value="Tuesday  7am to 9am"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio" value="Tuesday 9am to 11am"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio" value="Tuesday 11am to 1pm"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio" value="Tuesday 1pm to 3pm"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio"value="Tuesday 3pm to 5pm"></div></td>
+
+      </tr>
+
+      <tr>
+
+        <td>Wednesday</td>&nbsp;&nbsp;
+
+        <td><div class="radio"><input type="radio" name="optradio" value="Wednesday 7 am to 9am"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio"value="Wednesday 9am to 11am"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio"value="Wednesday 11am to 1pm"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio"value="Wednesday 1pm to 3pm"></div></td>
+
+        <td><div class="radio"><input type="radio" name="optradio"value="Wednesday 3pm to 5pm"></div></td>
+
+      </tr>
+
+      <tr>
+
+        <td>Thursday</td>&nbsp;&nbsp;
+
+        <td><div class="radio"><input type="radio"  name="optradio"value="Thursday 7 am to9am"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio"value="Thursday 9am to 11am"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio"value="Thursday 11am to 1pm"></div></td>
+
+        <td><div class="radio"><input type="radio" name="optradio"value="Thursday 1pm to3pm"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio"value="Thursday 3pm to 5pm"></div></td>
+
+      </tr>
+
+      <tr>
+
+        <td>Friday</td>&nbsp;&nbsp;
+
+        <td><div class="radio"><input type="radio" name="optradio"value="Friday 7am to 9am"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio"value="Friday 9am to 11am"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio"value="Friday 11am to 1pm"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio"value="Friday 1pm to 3pm"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio"value="Friday3pm to 5pm"></div></td>
+
+      </tr>
+
+      <tr>
+
+        <td>Saturday</td>&nbsp;&nbsp;
+
+        <td><div class="radio"><input type="radio"  name="optradio"value="Saturday 7am to 9am"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio"value="Saturday 9am to 11am"></div></td>
+
+        <td><div class="radio"><input type="radio" name="optradio"value="Saturday 11am to 1pm"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio"value="Saturday 1pm to 3pm"></div></td>
+
+        <td><div class="radio"><input type="radio"  name="optradio"value="Saturday 3pm to 5pm"></div></td>
+
+      </tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="container">
+
+  <tr>
+
+    <h6>select a package:</h6>
+
+    </tr>
+
+    <div class="control"><label class="radio"><input type="radio" name="answer" onclick="cal()"value=1week>one time assessment only(INR500)</label></div><br>
+
+<div class="control"><label class="radio"><input type="radio"  name="answer"  onclick="calc()"value=4weeks>4 weeks sessions only(INR 400/session)</label></div>
+
+<br>
+
+<div class="control"><label class="radio"><input type="radio"  name="answer"  onclick="ca()"value=12weeks>12 weeks seesions only(INR 300/session)</label></div>
+
+<br>
+
+<br>
+
+</div>
+
+<h4>Quote:</h4>
+
+<div class="form-group col-sm-1 ">
+
+    <div class="form-inline">
+
+<label for="INR">INR</label>
+
+<input type="text" class="form-control" id="INR"  name="INR" required>
+
+<label for="paise">paise</label>
+
+<input type="text" class="form-control" id="paise"  name="paise" required>
+
+    </div>
+
+</div>
+
+<button type="submit" class="btn btn-primary" >submit</button>
+
+</form>
+
+</div>
+
+</body>
+
+</div>
+
+</html>
+
+
+
